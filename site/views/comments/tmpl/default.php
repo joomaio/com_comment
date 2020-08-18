@@ -26,7 +26,7 @@ $finalUrl = $joomlaLoginUrl.$redirectUrl;
 $guestcomment = JComponentHelper::getParams('com_comment')->get('guestcomment', 0);
 ?>
 <hr>
-<div class="row">
+<div class="">
     <div class="column large-8 float-left">
     <?php if(!empty($this->comments)): ?>
         <h3 id="article-comment"><?php echo JText::_( 'COM_COMMENT_COMMENT_SECTION' ); ?> (<?php echo count($this->comments); ?>)</h3>
@@ -56,28 +56,49 @@ $guestcomment = JComponentHelper::getParams('com_comment')->get('guestcomment', 
         if($user->guest) 
         {
             ?>
-                <form id="comment-form" action="<?php echo JRoute::_('index.php?option=com_comment&task=comment.post'); ?>" method="post" class="form-validate form-horizontal well" enctype="multipart/form-data">
+                <form id="comment-form" action="<?php echo JRoute::_('index.php?option=com_comment&task=comment.post'); ?>" method="post" class="form-validate  well" enctype="multipart/form-data">
                 <?php if($guestcomment=='1'): ?>
-                <label>
-                    <?php echo JText::_( 'COM_COMMENT_GUEST_NAME' ); ?>
-                    <input name="guestname" type="text" placeholder="<?php echo JText::_( 'COM_COMMENT_GUEST_NAME_PLACEHOLDER' ); ?>" required>
-                </label>
-                <label>
-                    <?php echo JText::_( 'COM_COMMENT_GUEST_EMAIL' ); ?>
-                    <input name="guestemail" type="email" placeholder="<?php echo JText::_( 'COM_COMMENT_GUEST_EMAIL_PLACEHOLDER' ); ?>" required>
-                </label>
-                <label>
-                    <?php echo JText::_( 'COM_COMMENT_CONTENT_COMMENT' ); ?>
-                    <textarea name="comment" rows="3" placeholder="<?php echo JText::_( 'COM_COMMENT_CONTENT_COMMENT_PLACEHOLDER' ); ?>" required></textarea>
-                </label>
-                <input type="hidden" name="article_id" value="<?php echo $contentId; ?>">
-                <input type="hidden" name="catid" value="<?php echo $catId; ?>" />
-                <input type="hidden" name="Itemid" value="<?php echo $Itemid; ?>" />
-                <button type="submit" class="button"><?php echo JText::_( 'COM_COMMENT_SUBMIT_BUTTON' ); ?></button>
-                <span class="cmt-seperation"><?php echo JText::_( 'COM_COMMENT_AND_CHARACTER' ); ?></span>
+                    <div class="row-fluid">
+                        <div class="span2 input-append">
+                            <label for="guestname"><?php echo JText::_( 'COM_COMMENT_GUEST_NAME' ); ?></label>
+                        </div>
+                        <div class="span10 input-prepend">
+                            <input id="guestname" name="guestname" type="text" placeholder="<?php echo JText::_( 'COM_COMMENT_GUEST_NAME_PLACEHOLDER' ); ?>" required>
+                        </div>
+                    </div>
+                    <div class="row-fluid input-prepend">
+                        <div class="span2 input-append">
+                            <label for="guestemail"><?php echo JText::_( 'COM_COMMENT_GUEST_EMAIL' ); ?></label>
+                        </div>
+                        <div class="span10 input-prepend">
+                            <input id="guestemail" name="guestemail" type="email" placeholder="<?php echo JText::_( 'COM_COMMENT_GUEST_EMAIL_PLACEHOLDER' ); ?>" required>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span2 input-append">
+                            <label for="comment"><?php echo JText::_( 'COM_COMMENT_CONTENT_COMMENT' ); ?></label>
+                        </div>
+                        <div class="span10 input-prepend">
+                            <textarea id="comment" name="comment" rows="3" placeholder="<?php echo JText::_( 'COM_COMMENT_CONTENT_COMMENT_PLACEHOLDER' ); ?>" required></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="article_id" value="<?php echo $contentId; ?>">
+                    <input type="hidden" name="catid" value="<?php echo $catId; ?>" />
+                    <input type="hidden" name="Itemid" value="<?php echo $Itemid; ?>" />
+                    <div class="row-fluid">
+                        <div class="offset2">
+                            <button type="submit" class="button"><?php echo JText::_( 'COM_COMMENT_SUBMIT_BUTTON' ); ?></button>
+                            <span class="cmt-seperation"><?php echo JText::_( 'COM_COMMENT_AND_CHARACTER' ); ?></span>
+                        </div>
+                    </div>
                 <?php endif; ?>
-                <a href="<?php echo JRoute::_($finalUrl); ?>" class="button"><?php echo JText::_( 'COM_COMMENT_LOGIN_TO_POST_COMMENT' ); ?></a>
+                <div class="row-fluid">
+                    <div class="offset2">
+                        <a href="<?php echo JRoute::_($finalUrl); ?>" class="button"><?php echo JText::_( 'COM_COMMENT_LOGIN_TO_POST_COMMENT' ); ?></a>
+                    </div>
+                </div>
                 <?php echo JHtml::_('form.token'); ?>
+                
             </form>
             <?php
         }
@@ -85,10 +106,9 @@ $guestcomment = JComponentHelper::getParams('com_comment')->get('guestcomment', 
         {
             ?>
             <form id="member-registration" action="<?php echo JRoute::_('index.php?option=com_comment&task=comment.post'); ?>" method="post" class="form-validate form-horizontal well" enctype="multipart/form-data">
-                <label>
-                    <?php echo JText::_( 'COM_COMMENT_CONTENT_COMMENT' ); ?>
-                    <textarea name="comment" placeholder="<?php echo JText::_( 'COM_COMMENT_CONTENT_COMMENT_PLACEHOLDER' ); ?>" required></textarea>
-                </label>
+                <label><?php echo JText::_( 'COM_COMMENT_CONTENT_COMMENT' ); ?></label>
+                <textarea name="comment" placeholder="<?php echo JText::_( 'COM_COMMENT_CONTENT_COMMENT_PLACEHOLDER' ); ?>" required></textarea>
+                
                 <input type="hidden" name="article_id" value="<?php echo $contentId; ?>">
                 <input type="hidden" name="catid" value="<?php echo $catId; ?>" />
                 <input type="hidden" name="Itemid" value="<?php echo $Itemid; ?>" />

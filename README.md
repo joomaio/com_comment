@@ -1,3 +1,8 @@
+### Version 0.5:
+- Development environment: Joomla 3.9.13, PHP 7.2.3, MySQL 5.7.26
+- Functions:
+     - Add new style sheet for Joomla fresh proposar template
+
 ### Version 0.4:
 - Development environment: Joomla 3.9.13, PHP 7.2.3, MySQL 5.7.26
 - Functions:
