@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="0.5" method="upgrade">
+<extension type="component" version="3.9" method="upgrade">
 
 	<name>COM_COMMENT</name>
 	<creationDate>04-07-2019</creationDate>
@@ -8,7 +8,7 @@
 	<authorUrl>joomaio.com</authorUrl>
 	<copyright>(C) 2005 - 2019 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>0.5</version>
+	<version>0.6</version>
 	<description>COM_COMMENT_DESCRIPTION_TEXT</description>
 	<install> <!-- Runs on install -->
 		<sql>
@@ -25,6 +25,10 @@
 			<schemapath type="mysql">sql/updates/mysql</schemapath>
 		</schemas>
 	</update>
+
+	<updateservers>
+		<server type="extension" name="com_comment" priority="1">http://www.update.joomaio.org/com_comment/com_comment_update.xml</server>
+	</updateservers>
 
 	<files folder="site">
 		<filename>comment.php</filename>
