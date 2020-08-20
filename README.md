@@ -1,3 +1,8 @@
+### Version 0.6:
+- Development environment: Joomla 3.9.20, PHP 7.2.3, MySQL 5.7.26
+- Functions:
+     - Add server update
+
 ### Version 0.5:
 - Development environment: Joomla 3.9.13, PHP 7.2.3, MySQL 5.7.26
 - Functions:
